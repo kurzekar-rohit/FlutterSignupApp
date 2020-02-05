@@ -112,6 +112,23 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 Padding(padding: EdgeInsets.fromLTRB(00.0, 10.0, 00.0, 10.0)),
+                // ButtonTheme(
+                //   height: 40.0,
+                //   minWidth: 200.0,
+                //   child: RaisedButton(
+                //     onPressed: _sendToNextScreen,
+                //     color: Colors.redAccent,
+                //     child: Text(
+                //       'Save',
+                //       style: TextStyle(
+                //         color: Colors.white,
+                //       ),
+                //     ),
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(10.0),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),
