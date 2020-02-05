@@ -8,6 +8,8 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   GlobalKey<FormState> _key = new GlobalKey();
+ static String patttern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
+  RegExp regExp = new RegExp(patttern);
   bool _autovalidate = false;
   String name, email, mobile, collegename;
   @override
@@ -51,8 +53,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   leading: Icon(Icons.email),
                   title: TextFormField(
                     validator: (input) {
-                      if (input.isEmpty) {
-                        return 'Enter email';
+                      if (input.isEmpty || !input.contains("@")) {
+                        return 'Enter valid mail ID';
                       }
                     },
                     decoration: InputDecoration(
@@ -66,9 +68,12 @@ class _SignUpPageState extends State<SignUpPage> {
                   title: TextFormField(
                     //this hides the text being edited
                     obscureText: true,
-                    validator: (input) {
-                      if (input.isEmpty) {
+                    
+                    validator: (value) {
+                      if (value.isEmpty) {
                         return 'Enter mobile';
+                      } else if(!regExp.hasMatch(value)){
+                        return 'Please enter valid mobile number';
                       }
                     },
                     decoration: InputDecoration(
